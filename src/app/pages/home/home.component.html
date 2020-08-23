@@ -3,11 +3,7 @@
 	<div class="container">
 		<mat-toolbar class="header" color="primary">
 			<img src="assets/images/logo.png" alt="logo" />
-			<button
-				mat-icon-button
-				aria-label="Search Cards"
-				(click)="searchBar = !searchBar"
-			>
+			<button mat-icon-button aria-label="Search Cards" (click)="searchBar = !searchBar">
 				<mat-icon class="white-icon">search</mat-icon>
 			</button>
 		</mat-toolbar>
@@ -16,12 +12,8 @@
 			<div class="input-field">
 				<input matInput type="search" [(ngModel)]="search" />
 			</div>
-			<button
-				mat-flat-button
-				class="search-button"
-				(click)="findCardsByName()"
-			>
-				Pesquisar
+			<button mat-flat-button class="search-button" (click)="findCardsByName()">
+				<mat-icon>play_arrow</mat-icon>
 			</button>
 		</div>
 	</div>
@@ -30,9 +22,9 @@
 <mat-progress-bar mode="indeterminate" *ngIf="loading" class="loading">
 </mat-progress-bar>
 
-<mat-card
-	><h1 id="title">{{ title }}</h1></mat-card
->
+<mat-card>
+	<h1 id="title">{{ title }}</h1>
+</mat-card>
 
 <div id="cards-container">
 	<div class="card" *ngFor="let card of cards" (click)="navigate(card.id)">
@@ -46,10 +38,7 @@
 		</div>
 
 		<div class="cards-types">
-			<span
-				class="{{ 'poke-type ' + type.toLowerCase() }}"
-				*ngFor="let type of card.types"
-			>
+			<span class="{{ 'poke-type ' + type.toLowerCase() }}" *ngFor="let type of card.types">
 				{{ type }}
 			</span>
 		</div>

@@ -25,7 +25,7 @@
 			<span>{{ card.id }}</span>
 			<span class="name">{{ card.name }}</span>
 
-			<div class="box-container">
+			<div class="box-container" *ngIf="card.types">
 				<div class="box-label">
 					<span>Tipos</span>
 				</div>
@@ -37,7 +37,7 @@
 				</div>
 			</div>
 
-			<div class="box-container">
+			<div class="box-container" *ngIf="card.weaknesses">
 				<div class="box-label">
 					<span>Fraquezas</span>
 				</div>
@@ -50,7 +50,7 @@
 				</div>
 			</div>
 
-			<div class="box-container">
+			<div class="box-container" *ngIf="card.resistances">
 				<div class="box-label">
 					<span>Resistências</span>
 				</div>
@@ -89,7 +89,7 @@
 	<div class="container">
 		<img src="assets/images/psyduck.png" alt="" />
 		<span>
-			Parece que nem na pokedéx encontramos esse pokemón.<br />
+			Parece que nem na Pokedéx encontramos esse pokemón.<br />
 			Tente corrigir o nome digitado!
 		</span>
 	</div>

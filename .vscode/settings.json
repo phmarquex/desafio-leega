@@ -14,5 +14,9 @@
 	"[html]": {
 		"editor.formatOnSave": true,
 		"editor.defaultFormatter": "vscode.html-language-features"
-	}
+	},
+	"cSpell.words": [
+		"psyduck",
+		"whatshot"
+	]
 }
