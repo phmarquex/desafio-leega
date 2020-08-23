@@ -26,4 +26,8 @@ export interface Card {
 		type: string
 		value: string
 	}>
+	resistances: Array<{
+		type: string
+		value: string
+	}>
 }

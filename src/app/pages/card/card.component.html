@@ -37,21 +37,38 @@
 				</span>
 			</div>
 
+			<div class="card-weaknesses">
+				<span>Resistências</span>
+				<span
+					class="{{ 'poke-type ' + resistance.type.toLowerCase() }}"
+					*ngFor="let resistance of card.resistances"
+				>
+					{{ resistance.type }} {{ resistance.value }}
+				</span>
+			</div>
+
 			<div class="card-attacks">
 				<div
 					class="attack-container"
 					*ngFor="let attack of card.attacks"
 				>
 					<span>
-						<mat-icon class="mana-icon">invert_colors</mat-icon>
+						<mat-icon
+							class="mana-icon"
+							*ngIf="attack.convertedEnergyCost"
+						>
+							invert_colors
+						</mat-icon>
 						{{ attack.convertedEnergyCost }}
 					</span>
 					<span>{{ attack.name }}</span>
 					<span>
-						<mat-icon class="dmg-icon">whatshot</mat-icon>
+						<mat-icon class="dmg-icon" *ngIf="attack.damage">
+							whatshot
+						</mat-icon>
 						{{ attack.damage }}
 					</span>
-					<span>Descrição: {{ attack.text }}</span>
+					<span>{{ attack.text }}</span>
 				</div>
 			</div>
 		</div>

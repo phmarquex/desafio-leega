@@ -41,10 +41,13 @@
 			<span>{{ card.name }}</span>
 		</div>
 
-		<div class="cards-types" *ngFor="let type of card.types">
-			<span class="{{ 'poke-type ' + type.toLowerCase() }}">{{
-				type
-			}}</span>
+		<div class="cards-types">
+			<span
+				class="{{ 'poke-type ' + type.toLowerCase() }}"
+				*ngFor="let type of card.types"
+			>
+				{{ type }}
+			</span>
 		</div>
 	</div>
 </div>

@@ -9,12 +9,12 @@ export class CardsService {
 	constructor() {}
 
 	async getCards(): Promise<AxiosResponse> {
-		const response = await api.get(`/cards?pageSize=10`)
+		const response = await api.get(`/cards`)
 		return response
 	}
 
 	async findCards(text: string): Promise<AxiosResponse> {
-		const response = await api.get(`/cards?pageSize=10&name=${text}`)
+		const response = await api.get(`/cards?name=${text}`)
 		return response
 	}
 

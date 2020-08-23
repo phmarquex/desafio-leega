@@ -29,7 +29,8 @@ export class CardComponent implements OnInit {
 		set: 'Carregando...',
 		setCode: 'Carregando...',
 		attacks: [],
-		weaknesses: []
+		weaknesses: [],
+		resistances: []
 	}
 
 	constructor(

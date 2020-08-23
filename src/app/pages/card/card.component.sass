@@ -11,6 +11,7 @@
 	width: 100%
 	min-height: 20rem
 	display: flex
+	justify-content: center
 	.container
 		width: 100%
 		display: flex
@@ -129,3 +130,15 @@
 .colorless
 	background: $steel !important
 	color: $black !important
+
+@media ( min-width: 500px )
+	.container
+		width: 900px !important
+		flex-wrap: nowrap !important
+
+	.card-image
+		margin-right: 3.2rem !important
+
+	.card-description
+		flex-direction: column
+		justify-content: center
