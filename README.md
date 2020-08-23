@@ -2,7 +2,7 @@
 
 ## Demo
 
-[Click here for a live demonstration](https://desafio-brasilprev.s3.amazonaws.com)
+[Click here for a live demonstration](http://desafio-brasilprev.s3-website-us-east-1.amazonaws.com/)
 ![](https://desafio-brasilprev.s3.amazonaws.com/Homepage.png)
 ![](https://desafio-brasilprev.s3.amazonaws.com/Card.png)
 
