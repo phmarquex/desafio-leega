@@ -117,7 +117,7 @@ export class HomeComponent implements OnInit {
 		this.searchBar = false
 		this.loading = true
 
-		if (this.search.length === 0) {
+		if (this.search === undefined || this.search === '') {
 			await this.getCards()
 		} else {
 			const response = await this.cardsService.findCards(this.search)
