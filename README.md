@@ -1,10 +1,9 @@
 # Desafio Leega - Vaga Frontend
 
 ## Demo
-Homepage: 
-![](https://desafio-brasilprev.s3.amazonaws.com/Homepage.png)
 
-Card Page: 
+[Click here for a live demonstration](https://desafio-brasilprev.s3.amazonaws.com)
+![](https://desafio-brasilprev.s3.amazonaws.com/Homepage.png)
 ![](https://desafio-brasilprev.s3.amazonaws.com/Card.png)
 
 
