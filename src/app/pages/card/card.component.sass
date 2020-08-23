@@ -28,11 +28,14 @@
 		width: 100%
 		display: flex
 		flex-wrap: wrap
+		flex-direction: column-reverse
 		padding: 1.6rem
 		.card-image
 			width: 100%
+			margin-top: 3.2rem
 			img
 				width: 100%
+				box-shadow: 5px 5px 5px #d0d0d0
 		.card-description
 			width: 100%
 			display: flex
@@ -41,24 +44,40 @@
 				width: 100%
 			.name
 				font-family: 'Russo One', sans-serif
-				font-size: 1.3rem
+				font-size: 2.4rem
+				margin-top: 1rem
 
-.card-types
-	margin: 1.2rem 0
+.box-container
 	width: 100%
-	span:first-child
-		margin: 0
-	span
-		padding: 0.3rem
-		border-radius: 0.3rem
-		margin: 0 0.3rem
-		color: $black
-		border: 1px solid $steel
+	min-height: 1rem
+	padding: 1.2rem 3.2rem
+	border: 1px solid #cacaca
+	border-radius: 0.6rem
+	margin-top: 3.2rem
+	position: relative
+	.box-label
+		position: absolute
+		top: -25px
+		left: 10px
+		background: $white
+		padding: 0.6rem 1.2rem
+		border-radius: 1rem
+		span
+			font-family: 'Russo One', sans-serif
+			font-size: 1rem
+			color: $black
+	.itens
+		margin: 1.2rem 0 0.6rem 0
+		.poke-type
+			padding: 0.6rem 1.2rem
+			border-radius: 1rem
+			margin-right: 0.6rem
 
 .card-attacks
-	border: 1px solid #efefef
+	border: 1px solid #cacaca
 	border-radius: 1rem
 	padding: 1.2rem
+	margin-top: 3.2rem
 	.attack-container
 		display: grid
 		grid-template-rows: auto auto
@@ -86,18 +105,6 @@
 			grid-column: 1 / span 5
 	.attack-container:last-child
 		margin-bottom: 0rem
-
-.card-weaknesses
-	margin: 1.2rem 0
-	width: 100%
-	span:first-child
-		margin: 0
-	span
-		padding: 0.3rem
-		border-radius: 0.3rem
-		margin: 0 0.3rem
-		color: $black
-		border: 1px solid $steel
 
 .not-found
 	width: 100vw
@@ -166,12 +173,16 @@
 
 @media ( min-width: 500px )
 	.container
-		width: 900px !important
+		flex-direction: row !important
+		width: 100% !important
 		flex-wrap: nowrap !important
 
 	.card-image
 		margin-right: 3.2rem !important
 
 	.card-description
-		flex-direction: column
 		justify-content: center
+
+@media ( min-width: 1000px )
+	.container
+		width: 1000px !important

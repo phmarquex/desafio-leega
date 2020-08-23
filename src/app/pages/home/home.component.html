@@ -1,34 +1,34 @@
 <!-- header -->
-<mat-toolbar class="header" color="primary">
-	<img src="assets/images/logo.png" alt="logo" />
-	<button
-		mat-icon-button
-		aria-label="Search Cards"
-		(click)="searchBar = !searchBar"
-	>
-		<mat-icon class="white-icon">search</mat-icon>
-	</button>
-</mat-toolbar>
+<div class="full-width">
+	<div class="container">
+		<mat-toolbar class="header" color="primary">
+			<img src="assets/images/logo.png" alt="logo" />
+			<button
+				mat-icon-button
+				aria-label="Search Cards"
+				(click)="searchBar = !searchBar"
+			>
+				<mat-icon class="white-icon">search</mat-icon>
+			</button>
+		</mat-toolbar>
 
-<div id="search-box" *ngIf="searchBar">
-	<div class="input-field">
-		<input matInput type="search" [(ngModel)]="search" />
+		<div id="search-box" *ngIf="searchBar">
+			<div class="input-field">
+				<input matInput type="search" [(ngModel)]="search" />
+			</div>
+			<button
+				mat-flat-button
+				class="search-button"
+				(click)="findCardsByName()"
+			>
+				Pesquisar
+			</button>
+		</div>
 	</div>
-	<button
-		mat-flat-button
-		color="accent"
-		class="search-button"
-		(click)="findCardsByName()"
-	>
-		Pesquisar
-	</button>
 </div>
 
-<mat-progress-bar
-	mode="indeterminate"
-	*ngIf="loading"
-	class="loading"
-></mat-progress-bar>
+<mat-progress-bar mode="indeterminate" *ngIf="loading" class="loading">
+</mat-progress-bar>
 
 <mat-card
 	><h1 id="title">{{ title }}</h1></mat-card

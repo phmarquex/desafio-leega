@@ -2,11 +2,7 @@
 <mat-toolbar class="header" color="primary">
 	<div class="nav-img">
 		<div class="nav-button">
-			<button
-				mat-icon-button
-				aria-label="Retornar para homepage"
-				(click)="navigateBack()"
-			>
+			<button mat-icon-button aria-label="Retornar para homepage" (click)="navigateBack()">
 				<mat-icon class="nav-icon">keyboard_backspace</mat-icon>
 			</button>
 		</div>
@@ -14,13 +10,11 @@
 	</div>
 </mat-toolbar>
 
-<mat-progress-bar
-	mode="indeterminate"
-	*ngIf="loading"
-	class="loading"
-></mat-progress-bar>
+<mat-progress-bar mode="indeterminate" *ngIf="loading" class="loading"></mat-progress-bar>
 
-<mat-card><h1 class="card-title">Visualizar Carta</h1></mat-card>
+<mat-card>
+	<h1 class="card-title">Visualizar Carta</h1>
+</mat-card>
 
 <div id="body-card" *ngIf="!error">
 	<div class="container">
@@ -31,45 +25,48 @@
 			<span>{{ card.id }}</span>
 			<span class="name">{{ card.name }}</span>
 
-			<div class="card-types" *ngIf="card.types">
-				<span>Tipos</span>
-				<span
-					class="{{ 'poke-type ' + type.toLowerCase() }}"
-					*ngFor="let type of card.types"
-					>{{ type }}</span
-				>
+			<div class="box-container">
+				<div class="box-label">
+					<span>Tipos</span>
+				</div>
+
+				<div class="itens">
+					<span class="{{ 'poke-type ' + type.toLowerCase() }}" *ngFor="let type of card.types">
+						{{ type }}
+					</span>
+				</div>
 			</div>
 
-			<div class="card-weaknesses" *ngIf="card.weaknesses">
-				<span>Fraquezas</span>
-				<span
-					class="{{ 'poke-type ' + weakness.type.toLowerCase() }}"
-					*ngFor="let weakness of card.weaknesses"
-				>
-					{{ weakness.type }} {{ weakness.value }}
-				</span>
+			<div class="box-container">
+				<div class="box-label">
+					<span>Fraquezas</span>
+				</div>
+
+				<div class="itens">
+					<span class="{{ 'poke-type ' + weakness.type.toLowerCase() }}"
+						*ngFor="let weakness of card.weaknesses">
+						{{ weakness.type }} {{ weakness.value }}
+					</span>
+				</div>
 			</div>
 
-			<div class="card-weaknesses" *ngIf="card.resistances">
-				<span>Resistências</span>
-				<span
-					class="{{ 'poke-type ' + resistance.type.toLowerCase() }}"
-					*ngFor="let resistance of card.resistances"
-				>
-					{{ resistance.type }} {{ resistance.value }}
-				</span>
+			<div class="box-container">
+				<div class="box-label">
+					<span>Resistências</span>
+				</div>
+
+				<div class="itens">
+					<span class="{{ 'poke-type ' + resistance.type.toLowerCase() }}"
+						*ngFor="let resistance of card.resistances">
+						{{ resistance.type }} {{ resistance.value }}
+					</span>
+				</div>
 			</div>
 
 			<div class="card-attacks" *ngIf="card.attacks">
-				<div
-					class="attack-container"
-					*ngFor="let attack of card.attacks"
-				>
+				<div class="attack-container" *ngFor="let attack of card.attacks">
 					<span>
-						<mat-icon
-							class="mana-icon"
-							*ngIf="attack.convertedEnergyCost"
-						>
+						<mat-icon class="mana-icon" *ngIf="attack.convertedEnergyCost">
 							invert_colors
 						</mat-icon>
 						{{ attack.convertedEnergyCost }}
