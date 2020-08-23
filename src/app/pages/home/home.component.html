@@ -1,0 +1,50 @@
+<!-- header -->
+<mat-toolbar class="header" color="primary">
+	<img src="assets/images/logo.png" alt="logo" />
+	<button
+		mat-icon-button
+		aria-label="Search Cards"
+		(click)="searchBar = !searchBar"
+	>
+		<mat-icon class="white-icon">search</mat-icon>
+	</button>
+</mat-toolbar>
+
+<div id="search-box" *ngIf="searchBar">
+	<mat-form-field class="input-field">
+		<input matInput type="search" [(ngModel)]="search" />
+	</mat-form-field>
+	<button
+		mat-flat-button
+		color="accent"
+		class="search-button"
+		(click)="findCardsByName()"
+	>
+		Pesquisar
+	</button>
+</div>
+
+<mat-progress-bar
+	mode="indeterminate"
+	*ngIf="loading"
+	class="loading"
+></mat-progress-bar>
+
+<div id="cards-container">
+	<div class="card" *ngFor="let card of cards" (click)="navigate(card.id)">
+		<div class="figure">
+			<img src="{{ card.imageUrl }}" alt="{{ card.name }}" />
+		</div>
+
+		<div class="card-texts">
+			<span>{{ card.id }}</span>
+			<span>{{ card.name }}</span>
+		</div>
+
+		<div class="cards-types" *ngFor="let type of card.types">
+			<span class="{{ 'poke-type ' + type.toLowerCase() }}">{{
+				type
+			}}</span>
+		</div>
+	</div>
+</div>

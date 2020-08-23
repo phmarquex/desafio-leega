@@ -1,0 +1,131 @@
+@import "../../../colors.sass"
+
+.header
+	height: 5.2rem
+	display: flex
+	justify-content: space-between
+	img
+		height: 3.2rem
+
+#body-card
+	width: 100%
+	min-height: 20rem
+	display: flex
+	.container
+		width: 100%
+		display: flex
+		flex-wrap: wrap
+		padding: 1.6rem
+		.card-image
+			width: 100%
+			img
+				width: 100%
+		.card-description
+			width: 100%
+			display: flex
+			flex-wrap: wrap
+			span
+				width: 100%
+			.name
+				font-family: 'Russo One', sans-serif
+				font-size: 1.3rem
+
+.card-types
+	margin: 1.2rem 0
+	width: 100%
+	span:first-child
+		margin: 0
+	span
+		padding: 0.3rem
+		border-radius: 0.3rem
+		margin: 0 0.3rem
+		color: $black
+		border: 1px solid $steel
+
+.card-attacks
+	border: 1px solid #efefef
+	border-radius: 1rem
+	padding: 1.2rem
+	.attack-container
+		display: grid
+		grid-template-rows: auto auto
+		grid-template-columns: 1fr 3fr 1fr
+		row-gap: 1.2rem
+		margin-bottom: 1.2rem
+		.mana-icon
+			color: $blue
+			margin-right: 0.6rem
+		.mana-icon svg
+			fill: $blue
+		.dmg-icon
+			color: $red
+			margin-right: 0.6rem
+		.dmg-icon svg
+			fill: $red
+		span
+			display: flex
+			justify-content: center
+			align-items: center
+		span:nth-child(2)
+			font-family: 'Russo One', sans-serif
+			font-size: 1rem
+		span:nth-child(4)
+			grid-column: 1 / span 5
+	.attack-container:last-child
+		margin-bottom: 0rem
+
+.card-weaknesses
+	margin: 1.2rem 0
+	width: 100%
+	span:first-child
+		margin: 0
+	span
+		padding: 0.3rem
+		border-radius: 0.3rem
+		margin: 0 0.3rem
+		color: $black
+		border: 1px solid $steel
+
+.grass
+	background: $green !important
+	color: $white !important
+
+.fighting
+	background: $red !important
+	color: $white !important
+
+.psychic
+	background: $purple !important
+	color: $white !important
+
+.grass
+	background: $green !important
+	color: $white !important
+
+.metal
+	background: $steel !important
+	color: $white !important
+
+.lightning
+	background: $yellow !important
+	color: $black !important
+
+.water
+	background: $blue !important
+	color: $white !important
+
+.darkness
+	background: $black !important
+	color: $white !important
+
+.fairy
+	background: $pink !important
+	color: $white !important
+
+.fire
+	background: $red !important
+	color: $white !important
+
+.colorless
+	background: $steel !important
+	color: $black !important

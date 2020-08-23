@@ -1,0 +1,13 @@
+{
+	"[typescript]": {
+		"editor.formatOnSave": true,
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[sass]": {
+		"editor.formatOnSave": true,
+		"editor.defaultFormatter": "syler.sass-indented"
+	},
+	"[html]": {
+		"editor.formatOnSave": true
+	}
+}

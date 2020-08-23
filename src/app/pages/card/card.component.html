@@ -1,0 +1,59 @@
+<!-- header -->
+<mat-toolbar class="header" color="primary">
+	<img src="assets/images/logo.png" alt="logo" />
+</mat-toolbar>
+
+<mat-progress-bar
+	mode="indeterminate"
+	*ngIf="loading"
+	class="loading"
+></mat-progress-bar>
+
+<div id="body-card">
+	<div class="container">
+		<div class="card-image">
+			<img src="{{ card.imageUrlHiRes }}" alt="{{ card.name }}" />
+		</div>
+		<div class="card-description">
+			<span>{{ card.id }}</span>
+			<span class="name">{{ card.name }}</span>
+
+			<div class="card-types">
+				<span>Tipos</span>
+				<span
+					class="{{ 'poke-type ' + type.toLowerCase() }}"
+					*ngFor="let type of card.types"
+					>{{ type }}</span
+				>
+			</div>
+
+			<div class="card-weaknesses">
+				<span>Fraquezas</span>
+				<span
+					class="{{ 'poke-type ' + weakness.type.toLowerCase() }}"
+					*ngFor="let weakness of card.weaknesses"
+				>
+					{{ weakness.type }} {{ weakness.value }}
+				</span>
+			</div>
+
+			<div class="card-attacks">
+				<div
+					class="attack-container"
+					*ngFor="let attack of card.attacks"
+				>
+					<span>
+						<mat-icon class="mana-icon">invert_colors</mat-icon>
+						{{ attack.convertedEnergyCost }}
+					</span>
+					<span>{{ attack.name }}</span>
+					<span>
+						<mat-icon class="dmg-icon">whatshot</mat-icon>
+						{{ attack.damage }}
+					</span>
+					<span>Descrição: {{ attack.text }}</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
