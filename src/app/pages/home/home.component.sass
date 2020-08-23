@@ -22,6 +22,7 @@
 		overflow: hidden
 		box-shadow: 2px 2px 2px #d9d9d9
 		background: #fafafa
+		transition: all 0.3s
 		.figure
 			width: 100%
 			img
@@ -61,14 +62,37 @@
 			color: #ffe5dd
 	.input-field
 		width: 100%
-		padding: 1.2rem
-		padding-right: 0
-		::ng-deep input.mat-input-element
-			background: $white
+		margin-left: 1.2rem
+		input
+			border: 0
+			width: 100%
+			outline: none
+			font-size: 1.1rem
+			padding: 0.6rem 1rem
+			border-radius: 1.6rem
+		input:focus
+			border: 0
+			outline: none
+
+.not-found
+	width: 100vw
+	display: flex
+	justify-content: center
+	align-items: center
+	.container
+		display: flex
+		flex-wrap: wrap
+		justify-content: center
+		align-items: center
+		img
+			height: 12rem
+		span
+			margin-top: 3.2rem
+			width: 300px
+			text-align: center
+			font-family: 'Russo One', sans-serif
+			font-size: 1.3rem
 			color: $black
-			font-size: 1.2rem
-			border-radius: 1.2rem
-			padding: 0.6rem 1.2rem
 
 .loading
 	margin-bottom: 3.2rem
@@ -128,8 +152,15 @@
 	color: $black !important
 
 @media ( min-width: 500px )
+	.container
+		width: 500px
+		span
+			margin: 0 !important
+			margin-left: 3.2rem !important
 	#cards-container
 		grid-template-columns: repeat(3, 1fr)
+	.card:hover
+		transform: scale(1.2)
 
 @media ( min-width: 700px )
 	#cards-container

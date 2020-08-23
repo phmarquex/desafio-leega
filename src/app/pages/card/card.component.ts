@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { Card } from '../../models/card'
 import { CardsService } from 'src/app/services/api/cards.service'
-import { ActivatedRoute, Params } from '@angular/router'
+import { Router, ActivatedRoute, Params } from '@angular/router'
 
 @Component({
 	selector: 'app-card',
@@ -10,7 +10,8 @@ import { ActivatedRoute, Params } from '@angular/router'
 })
 export class CardComponent implements OnInit {
 	loading: boolean = false
-	id: string
+	error: boolean = false
+	id: string = ''
 	card: Card = {
 		id: 'Carregando...',
 		name: 'Carregando...',
@@ -35,12 +36,11 @@ export class CardComponent implements OnInit {
 
 	constructor(
 		private cardsService: CardsService,
-		private route: ActivatedRoute
+		private route: ActivatedRoute,
+		private router: Router
 	) {
-		this.route.params.forEach((param: Params) => {
-			for (const [key, value] of Object.entries(param)) {
-				this[key] = value
-			}
+		this.route.params.forEach(({ id }: Params) => {
+			this.id = id
 		})
 	}
 	ngOnInit(): void {
@@ -48,9 +48,18 @@ export class CardComponent implements OnInit {
 	}
 
 	async loadCard(): Promise<void> {
-		const response = await this.cardsService.findCard(this.id)
-		const { card } = response.data
-		this.loading = false
-		this.card = card
+		try {
+			const response = await this.cardsService.findCard(this.id)
+			const { card } = response.data
+			this.loading = false
+			this.card = card
+		} catch (error) {
+			this.error = true
+		}
+	}
+
+	navigateBack(): boolean {
+		this.router.navigate([''])
+		return true
 	}
 }

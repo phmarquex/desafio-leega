@@ -1,6 +1,17 @@
 <!-- header -->
 <mat-toolbar class="header" color="primary">
-	<img src="assets/images/logo.png" alt="logo" />
+	<div class="nav-img">
+		<div class="nav-button">
+			<button
+				mat-icon-button
+				aria-label="Retornar para homepage"
+				(click)="navigateBack()"
+			>
+				<mat-icon class="nav-icon">keyboard_backspace</mat-icon>
+			</button>
+		</div>
+		<img src="assets/images/logo.png" alt="logo" />
+	</div>
 </mat-toolbar>
 
 <mat-progress-bar
@@ -9,7 +20,9 @@
 	class="loading"
 ></mat-progress-bar>
 
-<div id="body-card">
+<mat-card><h1 class="card-title">Visualizar Carta</h1></mat-card>
+
+<div id="body-card" *ngIf="!error">
 	<div class="container">
 		<div class="card-image">
 			<img src="{{ card.imageUrlHiRes }}" alt="{{ card.name }}" />
@@ -18,7 +31,7 @@
 			<span>{{ card.id }}</span>
 			<span class="name">{{ card.name }}</span>
 
-			<div class="card-types">
+			<div class="card-types" *ngIf="card.types">
 				<span>Tipos</span>
 				<span
 					class="{{ 'poke-type ' + type.toLowerCase() }}"
@@ -27,7 +40,7 @@
 				>
 			</div>
 
-			<div class="card-weaknesses">
+			<div class="card-weaknesses" *ngIf="card.weaknesses">
 				<span>Fraquezas</span>
 				<span
 					class="{{ 'poke-type ' + weakness.type.toLowerCase() }}"
@@ -37,7 +50,7 @@
 				</span>
 			</div>
 
-			<div class="card-weaknesses">
+			<div class="card-weaknesses" *ngIf="card.resistances">
 				<span>Resistências</span>
 				<span
 					class="{{ 'poke-type ' + resistance.type.toLowerCase() }}"
@@ -47,7 +60,7 @@
 				</span>
 			</div>
 
-			<div class="card-attacks">
+			<div class="card-attacks" *ngIf="card.attacks">
 				<div
 					class="attack-container"
 					*ngFor="let attack of card.attacks"
@@ -72,5 +85,15 @@
 				</div>
 			</div>
 		</div>
+	</div>
+</div>
+
+<div class="not-found" *ngIf="error">
+	<div class="container">
+		<img src="assets/images/psyduck.png" alt="" />
+		<span>
+			Parece que nem na pokedéx encontramos esse pokemón.<br />
+			Tente corrigir o nome digitado!
+		</span>
 	</div>
 </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, ANALYZE_FOR_ENTRY_COMPONENTS } from '@angular/core'
 import { CardsService } from '../../services/api/cards.service'
 import { Card } from '../../models/card'
 import { Router } from '@angular/router'
@@ -9,9 +9,94 @@ import { Router } from '@angular/router'
 	styleUrls: ['./home.component.sass']
 })
 export class HomeComponent implements OnInit {
-	title: string = 'brasilprev'
+	title: string = 'Lista de Cartas'
 	loading: boolean = true
-	cards: Array<Card> = []
+	cards: Array<Card> = [
+		{
+			id: 'Carregando...',
+			name: 'Carregando...',
+			nationalPokedexNumber: 0,
+			imageUrl: '',
+			imageUrlHiRes: '',
+			types: [],
+			supertype: 'Carregando...',
+			subtype: 'Carregando...',
+			evolvesFrom: 'Carregando...',
+			hp: 'Carregando...',
+			number: 'Carregando...',
+			artist: 'Carregando...',
+			rarity: 'Carregando...',
+			series: 'Carregando...',
+			set: 'Carregando...',
+			setCode: 'Carregando...',
+			attacks: [],
+			weaknesses: [],
+			resistances: []
+		},
+		{
+			id: 'Carregando...',
+			name: 'Carregando...',
+			nationalPokedexNumber: 0,
+			imageUrl: '',
+			imageUrlHiRes: '',
+			types: [],
+			supertype: 'Carregando...',
+			subtype: 'Carregando...',
+			evolvesFrom: 'Carregando...',
+			hp: 'Carregando...',
+			number: 'Carregando...',
+			artist: 'Carregando...',
+			rarity: 'Carregando...',
+			series: 'Carregando...',
+			set: 'Carregando...',
+			setCode: 'Carregando...',
+			attacks: [],
+			weaknesses: [],
+			resistances: []
+		},
+		{
+			id: 'Carregando...',
+			name: 'Carregando...',
+			nationalPokedexNumber: 0,
+			imageUrl: '',
+			imageUrlHiRes: '',
+			types: [],
+			supertype: 'Carregando...',
+			subtype: 'Carregando...',
+			evolvesFrom: 'Carregando...',
+			hp: 'Carregando...',
+			number: 'Carregando...',
+			artist: 'Carregando...',
+			rarity: 'Carregando...',
+			series: 'Carregando...',
+			set: 'Carregando...',
+			setCode: 'Carregando...',
+			attacks: [],
+			weaknesses: [],
+			resistances: []
+		},
+		{
+			id: 'Carregando...',
+			name: 'Carregando...',
+			nationalPokedexNumber: 0,
+			imageUrl: '',
+			imageUrlHiRes: '',
+			types: [],
+			supertype: 'Carregando...',
+			subtype: 'Carregando...',
+			evolvesFrom: 'Carregando...',
+			hp: 'Carregando...',
+			number: 'Carregando...',
+			artist: 'Carregando...',
+			rarity: 'Carregando...',
+			series: 'Carregando...',
+			set: 'Carregando...',
+			setCode: 'Carregando...',
+			attacks: [],
+			weaknesses: [],
+			resistances: []
+		}
+	]
 	search: string
 	searchBar: boolean = false
 
@@ -33,7 +118,7 @@ export class HomeComponent implements OnInit {
 		this.loading = true
 
 		if (this.search.length === 0) {
-			this.getCards()
+			await this.getCards()
 		} else {
 			const response = await this.cardsService.findCards(this.search)
 			const { cards } = response.data
@@ -44,8 +129,8 @@ export class HomeComponent implements OnInit {
 		}
 	}
 
-	navigate(id: string): void {
+	navigate(id: string): boolean {
 		this.router.navigate(['/card/' + id])
-		console.log(id)
+		return true
 	}
 }

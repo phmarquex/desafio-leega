@@ -1,33 +1,74 @@
-import { TestBed, async } from '@angular/core/testing'
+import { TestBed, async, ComponentFixture } from '@angular/core/testing'
 import { RouterTestingModule } from '@angular/router/testing'
 import { HomeComponent } from './home.component'
 
-describe('AppComponent', () => {
+describe('HomeComponent', () => {
+	let component: HomeComponent
+	let fixture: ComponentFixture<HomeComponent>
+
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({
-			imports: [RouterTestingModule],
-			declarations: [HomeComponent]
+			declarations: [HomeComponent],
+			imports: [RouterTestingModule]
 		}).compileComponents()
 	}))
 
-	it('should create the app', () => {
-		const fixture = TestBed.createComponent(HomeComponent)
-		const app = fixture.componentInstance
-		expect(app).toBeTruthy()
+	beforeEach(() => {
+		fixture = TestBed.createComponent(HomeComponent)
+		component = fixture.componentInstance
+		fixture.detectChanges()
 	})
 
-	it(`should have as title 'brasilprev'`, () => {
-		const fixture = TestBed.createComponent(HomeComponent)
-		const app = fixture.componentInstance
-		expect(app.title).toEqual('brasilprev')
+	it('should create the app', () => {
+		expect(component).toBeTruthy()
+	})
+
+	it(`should have as title 'Lista de Cartas'`, () => {
+		expect(component.title).toEqual('Lista de Cartas')
+	})
+
+	it(`should have as loading as TRUE`, () => {
+		expect(component.loading).toEqual(true)
+	})
+
+	it(`should have as searchBar as FALSE`, () => {
+		expect(component.searchBar).toEqual(false)
+	})
+
+	it(`should have as cards as Default values`, () => {
+		const cardLength: number = 4
+		expect(component.cards.length).toEqual(cardLength)
 	})
 
 	it('should render title', () => {
-		const fixture = TestBed.createComponent(HomeComponent)
-		fixture.detectChanges()
 		const compiled = fixture.nativeElement
-		expect(compiled.querySelector('.content span').textContent).toContain(
-			'brasilprev app is running!'
+		expect(compiled.querySelector('#title').textContent).toContain(
+			'Lista de Cartas'
 		)
+	})
+
+	it('should ngInit component', () => {
+		expect(component.loading).toBe(true)
+	})
+
+	it('should get all cards', async () => {
+		await component.getCards()
+		expect(component.cards.length).toBeGreaterThan(4)
+	})
+
+	it('should find cards by name', async () => {
+		component.search = 'pika'
+		await component.findCardsByName()
+		expect(component.cards.length).toBeGreaterThan(4)
+	})
+
+	it('should not load card when search field is empty', async () => {
+		component.search = ''
+		await component.findCardsByName()
+		expect(component.cards.length).toBeGreaterThan(4)
+	})
+
+	it('should navigate to card page', async () => {
+		expect(component.navigate('teste')).toEqual(true)
 	})
 })

@@ -13,6 +13,7 @@ import { MatGridListModule } from '@angular/material/grid-list'
 import { MatProgressBarModule } from '@angular/material/progress-bar'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
+import { MatCardModule } from '@angular/material/card'
 
 import { HomeComponent } from './pages/home/home.component'
 import { CardComponent } from './pages/card/card.component'
@@ -31,7 +32,8 @@ import { NavComponent } from './pages/nav/nav.component'
 		MatProgressBarModule,
 		MatFormFieldModule,
 		MatInputModule,
-		FormsModule
+		FormsModule,
+		MatCardModule
 	],
 	providers: [],
 	bootstrap: [NavComponent]

@@ -11,9 +11,9 @@
 </mat-toolbar>
 
 <div id="search-box" *ngIf="searchBar">
-	<mat-form-field class="input-field">
+	<div class="input-field">
 		<input matInput type="search" [(ngModel)]="search" />
-	</mat-form-field>
+	</div>
 	<button
 		mat-flat-button
 		color="accent"
@@ -29,6 +29,10 @@
 	*ngIf="loading"
 	class="loading"
 ></mat-progress-bar>
+
+<mat-card
+	><h1 id="title">{{ title }}</h1></mat-card
+>
 
 <div id="cards-container">
 	<div class="card" *ngFor="let card of cards" (click)="navigate(card.id)">
@@ -49,5 +53,15 @@
 				{{ type }}
 			</span>
 		</div>
+	</div>
+</div>
+
+<div class="not-found" *ngIf="cards.length === 0">
+	<div class="container">
+		<img src="assets/images/psyduck.png" alt="" />
+		<span>
+			Parece que nem na pokedéx encontramos esse pokemón.<br />
+			Tente corrigir o nome digitado!
+		</span>
 	</div>
 </div>
